@@ -1,1 +1,1 @@
-web: unicorn utilities.wsgi
+web: gunicorn utilities.wsgi
