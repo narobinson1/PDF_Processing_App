@@ -1,0 +1,86 @@
+		<form action="{% url 'utils:returnText' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+			<label for="text"> returnText: <br></label>
+			<input type="file" name="text" accept=".pdf" />
+			<input type="submit">
+		</form>
+		<br>
+		<form action="{% url 'utils:returnMetadata' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+			<label for="metadata"> returnMetadata: <br></label>
+			<input type="file" name="metadata" accept=".pdf" />
+			<input type="submit">
+		</form>
+		<br>
+		<form action="{% url 'utils:returnAttachments' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+			<label for="attachments"> returnAttachments: <br></label>
+			<input type="file" name="attachments" accept=".pdf" />
+			<input type="submit">
+			{% if attachmentMessage %}
+				{{ attachmentMessage }}
+			{% endif %}
+		</form>
+		<br>
+		<form action="{% url 'utils:returnImages' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+			<label for="images"> returnImages: <br></label>
+			<input type="file" name="images" accept=".pdf" />
+			<input type="submit">
+		</form>
+		<br>
+		<form action="{% url 'utils:returnEncryption' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+			<label for="encryption"> returnEncryption: <br></label>
+			<input type="file" name="encryption" accept=".pdf" />
+			<label for="password"> Password: </label>
+			<input type="password" name="password" required />
+			<div>
+				<input type="radio" name="AES-encrypt" value="AES-128" />
+				<label for="AES-128"> AES-128 </label>
+				<input type="radio" name="AES-encrypt" value="AES-256" />
+				<label for="AES-256"> AES-256 </label>
+				<input type="radio" name="AES-encrypt" value="AES-256-R5" />
+				<label for="AES-256-R5"> AES-256-R5 </label>
+			</div>
+			<input type="submit">
+		</form>
+		<br>
+		<form action="{% url 'utils:returnDecryption' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+			<label for="decryption"> returnDecryption: <br></label>
+			<input type="file" name="decryption" accept=".pdf" />
+			<label for="password"> Password: </label>
+			<input type="password" name="password" required />
+			<div>
+				<input type="radio" name="AES-decrypt" value="AES-128" />
+				<label for="AES-128"> AES-128 </label>
+				<input type="radio" name="AES-decrypt" value="AES-256" />
+				<label for="AES-256"> AES-256 </label>
+				<input type="radio" name="AES-decrypt" value="AES-256-R5" />
+				<label for="AES-256-R5"> AES-256-R5 </label>
+			</div>
+			<input type="submit">
+		</form>
+		<br>
+		<form action="{% url 'utils:returnMerged' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+			<label for="merged"> returnMerged: <br></label>
+			<input type="file" name="merged" accept=".pdf" multiple />
+			<input type="submit">
+			{% if mergedMessage %}
+				{{ mergedMessage }}
+			{% endif %}
+		</form>
+		<br>
+		<form action="{% url 'utils:returnRotated' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+			<label for="rotated"> returnRotated: <br></label>
+			<input type="file" name="rotated" accept=".pdf" />
+			<div>
+				<label for="rotation_degree"> Rotation degree: </label>
+				<input type="number" name="rotation_degree" min="0" max="360" value="90" />
+			</div>
+			<input type="submit">
+		</form>
+	</div>
