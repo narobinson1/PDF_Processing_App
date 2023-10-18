@@ -7,3 +7,4 @@ packaging==23.2
 pycparser==2.21
 pypdf==3.16.0
 sqlparse==0.4.4
+whitenoise==6.6.0
