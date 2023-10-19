@@ -6,61 +6,104 @@ import os
 import re
 from pypdf import PdfReader, PdfWriter, Transformation
 
+def theme_creator(theme_str: str) -> dict:
+    """Takes either 'true' or 'false' - true and false booleans from 'checked' attribute of theme checkbox, javascript boolean is stringified when passed as value of form input
+    
+    Returns: dict with theming classes
+    """
+    theme = {}
+    if theme_str == 'true':
+        theme['text'] = 'dark-text'
+        theme['header'] = 'dark-header'
+        theme['component'] = 'dark-component'
+        theme['main_section'] = 'dark-main-section'
+        theme['upload_section'] = 'dark-upload-section'
+        theme['dropzone_section'] = 'dark-dropzone-section'
+        theme['dropzone_text'] = 'dark-dropzone-text'
+        theme['checked'] = 'checked'
+    elif theme_str == 'false':
+        theme['text'] = 'light-text'
+        theme['header'] = 'light-header'
+        theme['component'] = 'light-component'
+        theme['main_section'] = 'light-main-section'
+        theme['upload_section'] = 'light-upload-section'
+        theme['dropzone_section'] = 'light-dropzone-section'
+        theme['dropzone_text'] = 'light-dropzone-text'
+        theme['checked'] = ''
+    
+    return theme
+        
 def index(request):
-    content = {}
-    content['header'] = "Text"
-    content['body'] = "Text"
-    return render(request, "utils/interface.html", {"content": content})
+#    theme_bool = request.POST['theme-input']
+    message = {}
+    theme = theme_creator('true')
+    message['welcome'] = "welcome"
+    message['theme'] = theme
+    
+    return render(request, "utils/interface.html", message)
 
 def returnText(request):
     files_dictionary = request.FILES
     file_wrapper = files_dictionary['text']
+    message = {}
     if file_wrapper.multiple_chunks:
         raw_file = file_wrapper.file
         reader = PdfReader(raw_file)
         page = reader.pages[0]
         text = page.extract_text()
+        message['text'] = text
 #        text = []
 #        for chunk in file:
 #            text.append(chunk)
     else:
         text = file.size
-    return render(request, "utils/interface.html", {"content_text": text})
+        message['text'] = text
+        
+    theme_bool = request.POST['theme-input']
+    theme = theme_creator(theme_bool)
+    message['theme'] = theme
+    return render(request, "utils/interface.html", message)
     
 def returnMetadata(request):
     files_dictionary = request.FILES
+    message = {}
     if 'author' in files_dictionary.keys():
         file_wrapper = files_dictionary['author']
         raw_file = file_wrapper.file
         reader = PdfReader(raw_file)
         meta = reader.metadata
         if hasattr(meta, 'author') and meta.author is not None:
-            message = {"author": meta.author}
+            message['author'] = meta.author
         else:
-            message = {"author": "No author"}
+            message['author'] = "No author"
     if 'date' in files_dictionary.keys():
         file_wrapper = files_dictionary['date']
         raw_file = file_wrapper.file
         reader = PdfReader(raw_file)
         meta = reader.metadata
         if hasattr(meta, 'creation_date') and meta.author is not None:
-            message = {"date": meta.creation_date}
+            message['date'] = meta.creation_date
         else:
-            message = {"date": "No date"}
+            message['date'] = "No date"
     if 'device' in files_dictionary.keys():
         file_wrapper = files_dictionary['device']
         raw_file = file_wrapper.file
         reader = PdfReader(raw_file)
         meta = reader.metadata
         if hasattr(meta, 'creator') and meta.creator is not None:
-            message = {"device": meta.creator}
+            message['device'] = meta.creator
         else:
-            message = {"device": "No device"}
+            message['device'] = "No device"
 
+    theme_bool = request.POST['theme-input']
+    theme = theme_creator(theme_bool)
+        
+    message['theme'] = theme
     return render(request, "utils/interface.html", message)
 
 def returnContent(request):
     files_dictionary = request.FILES
+    message = {}
     if 'text' in files_dictionary.keys():
         file_wrapper = files_dictionary['text']
         raw_file = file_wrapper.file
@@ -68,9 +111,9 @@ def returnContent(request):
         page = reader.pages[0]
         text = page.extract_text()
         if text:
-            message = {"text": text}
+            message['text'] = text
         else:
-            message = {"text": "No text"}
+            message['text'] = "No text"
     if 'images' in files_dictionary.keys():
         file_wrapper = files_dictionary['images']
         raw_file = file_wrapper.file
@@ -78,19 +121,22 @@ def returnContent(request):
         page = reader.pages[0]
         image_count = len(page.images)
         if image_count > 0:
-            message = {"images": image_count}
+            message['images'] = image_count
         else:
-            message = {"images": "No images"}
+            message['images'] = "No images"
     if 'attachments' in files_dictionary.keys():
         file_wrapper = files_dictionary['attachments']
         raw_file = file_wrapper.file
         reader = PdfReader(raw_file)
         attachments = reader.attachments
         if len(attachments) > 0:
-            message = {"attachments": attachments}
+            message['attachments'] = attachments
         else:
-            message = {"attachments": "No attachments"}
+            message['attachments'] = "No attachments"
             
+    theme_bool = request.POST['theme-input']
+    theme = theme_creator(theme_bool)
+    message['theme'] = theme
     return render(request, "utils/interface.html", message)
     
 def returnTransformation(request):

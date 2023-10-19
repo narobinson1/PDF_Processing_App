@@ -28,6 +28,16 @@ button {
 	padding: 20px;
 	border-radius: 20px;
 }
+#expand-icon {
+	position: absolute;
+	left: 16px;
+	top: 360px;
+	height: 30px;
+	width: 20px;
+	border-left: 3px solid #727574;
+	border-right: 3px solid #727574;
+	border-radius: 4px;
+}
 .dark-component {
 	background-color: #232121;
 	border: 0.5px solid #727574;
@@ -35,8 +45,6 @@ button {
 }
 .dark-text {
 	color: #d6d8d6;
-	margin-top: 30px;
-	margin-bottom: 30px;
 }
 .dark-main-section {
 	background-color: #33323b;
@@ -141,9 +149,44 @@ body {
 
 	z-index: 2;
 }
-/*#marquee-div {
+#pypdf-credits {
+	position: relative;
+	top: 120px;
+	height: 40px;
+	width: 300px;
+}
+#pypdf-credits > p {
 	position: absolute;
-	bottom: 60px;
+	top: 0px;
+	left: 40px;
+}
+#pypdf-credits:hover {
+	animation: smoothTextHighlightHover 1s forwards;
+}
+#pypdf-credits:not(:hover) {
+	animation: smoothTextHighlightUnhover 1s forwards;
+}
+#pypdf-logo-div {
+	position: absolute;
+	top: 0px;
+	left: 150px;
+	width: 100px;
+	height: 40px;
+	border-radius: 10px;
+}
+#pypdf-logo {
+	position: absolute;
+	top: 8px;
+	left: 10px;
+}
+#author-credits {
+	position: relative;
+	top: 40px;
+	left: 0px;
+}
+#marquee-div {
+	position: relative;
+	top: 0px;
 	width: 300px;
 }
 
@@ -152,7 +195,13 @@ body {
   max-width: 100%;
   overflow: hidden;
 }
-
+.marquee > p:hover {
+	animation: smoothTextHighlightHover 1s forwards;
+}
+.marquee > p:not(:hover) {
+	animation: smoothTextHighlightUnhover 1s forwards;
+	opacity: 0.5;
+}
 .marquee {
   white-space: nowrap;
   overflow: hidden;
@@ -172,7 +221,7 @@ body {
   100% {
     transform: translate3d(-50%, 0, 0);
   }
-}*/
+}
 
 #pdf-section {
 	width: 300px;
@@ -221,10 +270,11 @@ body {
 
 #expand-btn {
 	position: sticky;
-	height: 822px;
+	height: 100%;
+	width: 60px;
 	padding: 0px;
 
-	top: -20px;
+	top: 0px;
 
 	border-radius: 0px;
 }
@@ -235,7 +285,7 @@ body {
 	padding: 40px;
 }
 
-#body-section-welcome, #body-section-metadata, #body-section-content, #body-section-transformations, #body-section-security {
+#body-section-welcome, #body-section-metadata, #body-section-content, #body-section-transformation, #body-section-security {
 	position: absolute;
 	width: 400px;
 	height: 2000px;
@@ -272,24 +322,23 @@ body {
 	border-radius: 20px;
 }
 
-#header-1-div, #header-2-div, #header-3-div, #header-4-div {
+#header-1-div, #header-2-div, #header-3-div {
 	position: absolute;
-	padding-top: 13px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	padding-left: 20px;
 	width: 100px;
 	margin: 0px;
 }
+#header-1-div {
 
+}
 #header-2-div {
-	top: 91px;
+	top: 90px;
 }
 
 #header-3-div {
-	top: 137px;
-}
-
-#header-4-div {
-	top: 183px;
+	top: 135px;
 }
 
 #dropzone-section {
@@ -316,9 +365,9 @@ body {
 	border-radius: 20px;
 }
 .body-form {
-	width: 280px;
+	width: 500px;
 	margin: auto;
-	margin-top: 60px;
+	margin-top: 20px;
 }
 .body-resultbox, .body-resultbox-active {
 	position: relative;
@@ -328,7 +377,7 @@ body {
 	overflow-y: scroll;
 
 	margin: auto;
-	margin-top: 60px;
+	margin-top: 20px;
 }
 
 .body-resultbox > p {
@@ -337,6 +386,7 @@ body {
 }
 
 .body-resultbox-active > p {
+	padding-left: 20px;
 	opacity: 1;
 }
 
@@ -354,27 +404,51 @@ body {
 }
 #file-selector-div {
 	margin: auto;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 .file-selector {
 	width: 240px;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 #degree-input, #algorithm-input, #password-input {
 	position: relative;
 	left: 70px;
+
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-#AES-test-1, #AES-test-2, #AES-test-3 {
+#AES-test-1-enc, #AES-test-1-dec {
 	position: absolute;
-	left: 150px;
+	right: 40px;
+	top: 20px;
 }
-
-#label-AES-1, #label-AES-2, #label-AES-3 {
+#AES-test-2-enc, #AES-test-2-dec {
+	position: absolute;
+	right: 40px;
+	top: 60px;
+}
+#AES-test-3-enc, #AES-test-3-dec {
+	position: absolute;
+	right: 40px;
+	top: 100px;
+}
+#label-AES-1-enc, #label-AES-1-dec {
 	position: absolute;
 	left: 30px;
+	top: 20px;
+}
+#label-AES-2-enc, #label-AES-2-dec {
+	position: absolute;
+	left: 30px;
+	top: 60px;
+}
+#label-AES-3-enc, #label-AES-3-dec {
+	position: absolute;
+	left: 30px;
+	top: 100px;
 }
 
 #algorithm-type-div {
@@ -401,6 +475,10 @@ body {
 
 .btn-idle {
 	cursor: pointer;
+	position: relative;
+	left: 80px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 @keyframes smoothTextHighlightHover {
@@ -422,13 +500,24 @@ body {
 }
 
 .resting-header {
-	border-left: 1px solid #FFFFFF;
+	border-left: 1px solid;
 }
 
 .highlight-header {
-	border-left: 1px solid #79af62;
+	border-left: 2px solid;
 }
-
+.dark-header.resting-header {
+	border-color: #FFFFFF;
+}
+.highlight-header.dark-header {
+	border-color: #FFFFFF;
+}
+.light-header.resting-header {
+	border-color: #000;
+}
+.highlight-header.light-header {
+	border-color: #000;
+}
 .highlight-header > a {
 	opacity: 1;
 }

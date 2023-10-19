@@ -65,12 +65,16 @@
 						el.classList.remove('light-text')
 						el.classList.add('dark-text')
 					})
+					document.querySelectorAll('.light-header').forEach(el=>{
+						el.classList.remove('light-header')
+						el.classList.add('dark-text')
+					})
 				}
 				else {
 					document.getElementById('functionalities-section').classList.replace("dark-main-section", "light-main-section")
 					document.getElementById('content-section').classList.replace("dark-main-section", "light-main-section")
-					document.getElementById('pdf-section').classList.replace("light-upload-section", "dark-upload-section")
-					document.getElementById('expand-btn').classList.replace("light-component", "dark-component")
+					document.getElementById('pdf-section').classList.replace("dark-upload-section", "light-upload-section")
+					document.getElementById('expand-btn').classList.replace("dark-component", "light-component")
 					document.getElementById('dropzone-section').classList.replace("dark-dropzone-section", "light-dropzone-section")
 					document.getElementById('dropzone-text').classList.replace("dark-dropzone-text", "light-dropzone-text")
 					document.getElementById('ads-section').classList.replace("dark-component", "light-component")
@@ -107,6 +111,10 @@
 						el.classList.remove('dark-text')
 						el.classList.add('light-text')
 					})
+					document.querySelectorAll('.dark-header').forEach(el=>{
+						el.classList.remove('dark-header')
+						el.classList.add('light-header')
+					})
 				}
 			})
 			var pdfController = document.getElementById('expand-btn');
@@ -129,80 +137,86 @@
 				var header1div = document.getElementById('header-1-div');
 				var header2div = document.getElementById('header-2-div');
 				var header3div = document.getElementById('header-3-div');
-				var header4div = document.getElementById('header-4-div');
 
-				if (pos > 0 && pos < 25) {
-					document.querySelectorAll('.highlight-header').forEach(el=>{
-							el.classList.replace("highlight-header", "resting-header");
-						});
-					header1div.classList.replace("resting-header", "highlight-header");
-					document.querySelectorAll('.highlight-sub-header').forEach(el=>{
-							el.classList.replace("highlight-sub-header", "resting-sub-header");
-						});
-					document.getElementById('header1').classList.replace("resting-sub-header", "highlight-sub-header");
-				}
-				if (pos > 25 && pos <50) {
-					document.querySelectorAll('.highlight-header').forEach(el=>{
-							el.classList.replace("highlight-header", "resting-header");
-						});
-					header2div.classList.replace("resting-header", "highlight-header");
-					document.querySelectorAll('.highlight-sub-header').forEach(el=>{
-							el.classList.replace("highlight-sub-header", "resting-sub-header");
-						});
-					document.getElementById('header2').classList.replace("resting-sub-header", "highlight-sub-header");
-				}
-				if (pos >50 && pos <75) {
-					document.querySelectorAll('.highlight-header').forEach(el=>{
-							el.classList.replace("highlight-header", "resting-header");
-						});
-					header3div.classList.replace("resting-header", "highlight-header");
-					document.querySelectorAll('.highlight-sub-header').forEach(el=>{
-							el.classList.replace("highlight-sub-header", "resting-sub-header");
-						});
-					document.getElementById('header3').classList.replace("resting-sub-header", "highlight-sub-header");
-				}
-				if (pos >75 && pos <100) {
-					document.querySelectorAll('.highlight-header').forEach(el=>{
-							el.classList.replace("highlight-header", "resting-header");
-						});
-					header4div.classList.replace("resting-header", "highlight-header");
-					document.querySelectorAll('.highlight-sub-header').forEach(el=>{
-							el.classList.replace("highlight-sub-header", "resting-sub-header");
-						});
-					document.getElementById('header4').classList.replace("resting-sub-header", "highlight-sub-header");
-				}
+				// if (pos > 0 && pos < 33) {
+				// 	document.querySelectorAll('.highlight-header').forEach(el=>{
+				// 			el.classList.replace("highlight-header", "resting-header");
+				// 		});
+				// 	header1div.classList.replace("resting-header", "highlight-header");
+				// 	document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+				// 			el.classList.replace("highlight-sub-header", "resting-sub-header");
+				// 		});
+				// 	document.getElementById('header1').classList.replace("resting-sub-header", "highlight-sub-header");
+				// }
+				// if (pos > 33 && pos <66) {
+				// 	document.querySelectorAll('.highlight-header').forEach(el=>{
+				// 			el.classList.replace("highlight-header", "resting-header");
+				// 		});
+				// 	header2div.classList.replace("resting-header", "highlight-header");
+				// 	document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+				// 			el.classList.replace("highlight-sub-header", "resting-sub-header");
+				// 		});
+				// 	document.getElementById('header2').classList.replace("resting-sub-header", "highlight-sub-header");
+				// }
+				// if (pos >66 && pos <100) {
+				// 	document.querySelectorAll('.highlight-header').forEach(el=>{
+				// 			el.classList.replace("highlight-header", "resting-header");
+				// 		});
+				// 	header3div.classList.replace("resting-header", "highlight-header");
+				// 	document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+				// 			el.classList.replace("highlight-sub-header", "resting-sub-header");
+				// 		});
+				// 	document.getElementById('header3').classList.replace("resting-sub-header", "highlight-sub-header");
+				// }
 				adsSection.innerHTML = "<span>" + Math.round(pos) + "%<span>"
 			});
 
 			var header1 = document.getElementById('header-1');
 			var header2 = document.getElementById('header-2');
 			var header3 = document.getElementById('header-3');
-			var header4 = document.getElementById('header-4');
+
+			var header1div = document.getElementById('header-1-div');
+			var header2div = document.getElementById('header-2-div');
+			var header3div = document.getElementById('header-3-div');
 			header1.addEventListener('click', (event) => {
 				if (header1.innerHTML == "Author") {
 					document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					meta_author.classList.replace("resting-link", "highlight-link");
+					document.getElementById('meta').classList.replace("resting-link", "highlight-link");
 				}
 				if (header1.innerHTML == "Text") {
 					document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					content_text.classList.replace("resting-link", "highlight-link");
+					document.getElementById('content').classList.replace("resting-link", "highlight-link");
 				}
 				if (header1.innerHTML == "Merge") {
 					document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					transformation_merge.classList.replace("resting-link", "highlight-link");
+					document.getElementById('transformation').classList.replace("resting-link", "highlight-link");
 				}
 				if (header1.innerHTML == "Encryption") {
 					document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					security_encryption.classList.replace("resting-link", "highlight-link");
+					document.getElementById('security').classList.replace("resting-link", "highlight-link");
 				}
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header1div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-1').classList.replace("resting-sub-header", "highlight-sub-header");
+
 				contentSection.scrollTo({
 					top: 0,
 					behavior: "smooth",
@@ -214,25 +228,39 @@
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					meta_date.classList.replace("resting-link", "highlight-link");
+					document.getElementById('meta').classList.replace("resting-link", "highlight-link");
 				}
 				if (header2.innerHTML == "Images") {
 					document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					content_images.classList.replace("resting-link", "highlight-link");
+					document.getElementById('content').classList.replace("resting-link", "highlight-link");
 				}
 				if (header2.innerHTML == "Rotate") {
 					document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					transformation_rotate.classList.replace("resting-link", "highlight-link");
+					document.getElementById('transformation').classList.replace("resting-link", "highlight-link");
 				}
 				if (header2.innerHTML == "Decryption") {
 					document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					security_decryption.classList.replace("resting-link", "highlight-link");
+					document.getElementById('security').classList.replace("resting-link", "highlight-link");
 				}
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header2div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-2').classList.replace("resting-sub-header", "highlight-sub-header");
+
 				contentSection.scrollTo({
 					top: 1140,
 					behavior: "smooth",
@@ -244,27 +272,27 @@
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					meta_device.classList.replace("resting-link", "highlight-link");
+					document.getElementById('meta').classList.replace("resting-link", "highlight-link");
 				}
 				if (header3.innerHTML == "Attachments") {
 					document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 					content_attachments.classList.replace("resting-link", "highlight-link");
+					document.getElementById('content').classList.replace("resting-link", "highlight-link");
 				}
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header3div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-3').classList.replace("resting-sub-header", "highlight-sub-header");
+
 				contentSection.scrollTo({
 					top: 2280,
-					behavior: "smooth",
-				});
-			});
-			header4.addEventListener('click', (event) => {
-				if (header4.innerHTML == "Size") {
-					meta_author.className = 'resting-link'
-					meta_date.className = 'resting-link'
-					meta_device.className = 'resting-link'
-					meta_size.className = 'highlight-link'
-				}
-				contentSection.scrollTo({
-					top:3420,
 					behavior: "smooth",
 				});
 			});
@@ -285,33 +313,23 @@
 				document.getElementById('header-1').innerHTML = "Welcome"
 				document.getElementById('header-2').innerHTML = ""
 				document.getElementById('header-3').innerHTML = ""
-				document.getElementById('header-4').innerHTML = ""
 				document.getElementById('header-2-toggle').className = 'header-hidden'
 				document.getElementById('header-3-toggle').className = 'header-hidden'
-				document.getElementById('header-4-toggle').className = 'header-hidden'
 
-				document.getElementById('app-title').className = 'highlight-link'
-				welcome.className = 'highlight-link'
-				meta_author.className = 'resting-link'
-				meta_date.className = 'resting-link'
-				meta_device.className = 'resting-link'
-				meta_size.className = 'resting-link'
+				document.querySelectorAll('.highlight-link').forEach(el=>{
+							el.classList.replace("highlight-link", "resting-link");
+						});
+				welcome.classList.replace("resting-link", "highlight-link")
+				document.getElementById('app-title').classList.replace("resting-link", 'highlight-link')
 
-				content_text.className = 'resting-link'
-				content_images.className = 'resting-link'
-				content_attachments.className = 'resting-link'
-
-				transformation_merge.className = 'resting-link'
-				transformation_rotate.className = 'resting-link'
-
-				security_encryption.className = 'resting-link'
-				security_decryption.className = 'resting-link'
-
-				docu
-				document.getElementById('meta').className = 'resting-link'
-				document.getElementById('content').className = 'resting-link'
-				document.getElementById('transformation').className = 'resting-link'
-				document.getElementById('security').className = 'resting-link'
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header1div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-1').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				contentSection.scrollTo({
 					top: 0,
@@ -337,16 +355,23 @@
 				document.getElementById('header-1').innerHTML = "Author"
 				document.getElementById('header-2').innerHTML = "Date"
 				document.getElementById('header-3').innerHTML = "Device"
-				document.getElementById('header-4').innerHTML = "Size"
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = ''
-				document.getElementById('header-4-toggle').className = ''
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 				meta_author.classList.replace("resting-link", "highlight-link")
 				document.getElementById('meta').classList.replace("resting-link", 'highlight-link')
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header1div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-1').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				contentSection.scrollTo({
 					top: 0,
@@ -373,16 +398,23 @@
 				document.getElementById('header-1').innerHTML = "Author"
 				document.getElementById('header-2').innerHTML = "Date"
 				document.getElementById('header-3').innerHTML = "Device"
-				document.getElementById('header-4').innerHTML = "Size"
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = ''
-				document.getElementById('header-4-toggle').className = ''
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 				meta_date.classList.replace("resting-link", "highlight-link")
 				document.getElementById('meta').classList.replace("resting-link", 'highlight-link')
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header2div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-2').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				var contentSection = document.getElementById('content-section');
 				contentSection.scrollTo({
@@ -410,10 +442,8 @@
 				document.getElementById('header-1').innerHTML = "Author"
 				document.getElementById('header-2').innerHTML = "Date"
 				document.getElementById('header-3').innerHTML = "Device"
-				document.getElementById('header-4').innerHTML = "Size"
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = ''
-				document.getElementById('header-4-toggle').className = ''
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
@@ -421,61 +451,17 @@
 				meta_device.classList.replace("resting-link", "highlight-link")
 				document.getElementById('meta').classList.replace("resting-link", 'highlight-link')
 
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header3div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-3').classList.replace("resting-sub-header", "highlight-sub-header");
+
 				contentSection.scrollTo({
 					top: 2280,
-					behavior: "smooth",
-				});
-			})
-
-			var meta_size = document.getElementById('meta-size')
-			meta_size.addEventListener('click', (event) => {
-				document.getElementById('body-section-welcome').className = 'body-hidden'
-				document.getElementById('body-section-metadata').className = ''
-				document.getElementById('body-section-content').className = 'body-hidden'
-				document.getElementById('body-section-transformation').className = 'body-hidden'
-				document.getElementById('body-section-security').className = 'body-hidden'
-
-				var textbtn4 = document.getElementById('text-btn-4')
-				textbtn4.addEventListener('click', (event) => {
-					textbtn4.className = 'btn-transition'
-					setTimeout(() => {
-						textbtn4.className = 'btn-idle'
-					}, 500)
-				})
-
-				document.getElementById('header-1').innerHTML = "Author"
-				document.getElementById('header-2').innerHTML = "Date"
-				document.getElementById('header-3').innerHTML = "Device"
-				document.getElementById('header-4').innerHTML = "Size"
-				document.getElementById('header-2-toggle').className = ''
-				document.getElementById('header-3-toggle').className = ''
-				document.getElementById('header-4-toggle').className = ''
-
-				document.getElementById('app-title').className = 'resting-link'
-				welcome.className = 'resting-link'
-
-				meta_author.className = 'resting-link'
-				meta_date.className = 'resting-link'
-				meta_device.className = 'resting-link'
-				meta_size.className = 'highlight-link'
-
-				content_text.className = 'resting-link'
-				content_images.className = 'resting-link'
-				content_attachments.className = 'resting-link'
-
-				transformation_merge.className = 'resting-link'
-				transformation_rotate.className = 'resting-link'
-
-				security_encryption.className = 'resting-link'
-				security_decryption.className = 'resting-link'
-
-				document.getElementById('meta').className = 'highlight-link'
-				document.getElementById('content').className = 'resting-link'
-				document.getElementById('transformation').className = 'resting-link'
-				document.getElementById('security').className = 'resting-link'
-
-				contentSection.scrollTo({
-					top: 3420,
 					behavior: "smooth",
 				});
 			})
@@ -499,16 +485,23 @@
 				document.getElementById('header-1').innerHTML = "Text"
 				document.getElementById('header-2').innerHTML = "Images"
 				document.getElementById('header-3').innerHTML = "Attachments"
-				document.getElementById('header-4').innerHTML = ""
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = ''
-				document.getElementById('header-4-toggle').className = 'header-hidden'
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 				content_text.classList.replace("resting-link", "highlight-link")
 				document.getElementById('content').classList.replace("resting-link", 'highlight-link')
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header1div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-1').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				contentSection.scrollTo({
 					top: 0,
@@ -535,16 +528,23 @@
 				document.getElementById('header-1').innerHTML = "Text"
 				document.getElementById('header-2').innerHTML = "Images"
 				document.getElementById('header-3').innerHTML = "Attachments"
-				document.getElementById('header-4').innerHTML = ""
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = ''
-				document.getElementById('header-4-toggle').className = 'header-hidden'
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 				content_images.classList.replace("resting-link", "highlight-link")
 				document.getElementById('content').classList.replace("resting-link", 'highlight-link')
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header2div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-2').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				contentSection.scrollTo({
 					top: 1140,
@@ -571,16 +571,23 @@
 				document.getElementById('header-1').innerHTML = "Text"
 				document.getElementById('header-2').innerHTML = "Images"
 				document.getElementById('header-3').innerHTML = "Attachments"
-				document.getElementById('header-4').innerHTML = ""
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = ''
-				document.getElementById('header-4-toggle').className = 'header-hidden'
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 				content_attachments.classList.replace("resting-link", "highlight-link")
 				document.getElementById('content').classList.replace("resting-link", 'highlight-link')
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header3div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-3').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				contentSection.scrollTo({
 					top: 2280,
@@ -607,16 +614,23 @@
 				document.getElementById('header-1').innerHTML = "Merge"
 				document.getElementById('header-2').innerHTML = "Rotate"
 				document.getElementById('header-3').innerHTML = ""
-				document.getElementById('header-4').innerHTML = ""
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = 'header-hidden'
-				document.getElementById('header-4-toggle').className = 'header-hidden'
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 				transformation_merge.classList.replace("resting-link", "highlight-link")
 				document.getElementById('transformation').classList.replace("resting-link", 'highlight-link')
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header1div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-1').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				contentSection.scrollTo({
 					top: 0,
@@ -643,16 +657,23 @@
 				document.getElementById('header-1').innerHTML = "Merge"
 				document.getElementById('header-2').innerHTML = "Rotate"
 				document.getElementById('header-3').innerHTML = ""
-				document.getElementById('header-4').innerHTML = ""
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = 'header-hidden'
-				document.getElementById('header-4-toggle').className = 'header-hidden'
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 				transformation_rotate.classList.replace("resting-link", "highlight-link")
 				document.getElementById('transformation').classList.replace("resting-link", 'highlight-link')
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header2div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-2').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				contentSection.scrollTo({
 					top: 1140,
@@ -679,16 +700,23 @@
 				document.getElementById('header-1').innerHTML = "Encryption"
 				document.getElementById('header-2').innerHTML = "Decryption"
 				document.getElementById('header-3').innerHTML = ""
-				document.getElementById('header-4').innerHTML = ""
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = 'header-hidden'
-				document.getElementById('header-4-toggle').className = 'header-hidden'
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 				security_encryption.classList.replace("resting-link", "highlight-link")
 				document.getElementById('security').classList.replace("resting-link", 'highlight-link')
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header1div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-1').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				contentSection.scrollTo({
 					top: 0,
@@ -715,16 +743,23 @@
 				document.getElementById('header-1').innerHTML = "Encryption"
 				document.getElementById('header-2').innerHTML = "Decryption"
 				document.getElementById('header-3').innerHTML = ""
-				document.getElementById('header-4').innerHTML = ""
 				document.getElementById('header-2-toggle').className = ''
 				document.getElementById('header-3-toggle').className = 'header-hidden'
-				document.getElementById('header-4-toggle').className = 'header-hidden'
 
 				document.querySelectorAll('.highlight-link').forEach(el=>{
 							el.classList.replace("highlight-link", "resting-link");
 						});
 				security_decryption.classList.replace("resting-link", "highlight-link")
 				document.getElementById('security').classList.replace("resting-link", 'highlight-link')
+
+				document.querySelectorAll('.highlight-header').forEach(el=>{
+						el.classList.replace("highlight-header", "resting-header");
+					});
+				header2div.classList.replace("resting-header", "highlight-header");
+				document.querySelectorAll('.highlight-sub-header').forEach(el=>{
+						el.classList.replace("highlight-sub-header", "resting-sub-header");
+					});
+				document.getElementById('header-2').classList.replace("resting-sub-header", "highlight-sub-header");
 
 				contentSection.scrollTo({
 					top: 1140,
@@ -742,58 +777,66 @@
 	</script>
 </head>
 <body>
-	<div id="functionalities-section" class='dark-main-section'>
-		<a id='app-title' href="#" class='{% if welcome %} highlight-link {% else %} resting-link dark-text {% endif %}'> PDFservice </a><hr><br>
-			<a id='welcome' href="#" class='{% if welcome %} highlight-link {% else %} resting-link {% endif %}'>
+	<div id="functionalities-section" class='{{ theme.main_section }}'>
+		<a id='app-title' href="#" class='{% if welcome %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> PDFservice </a><hr><br>
+			<a id='welcome' href="#" class='{% if welcome %} highlight-link {{ theme.text }}{% else %} resting-link {{ theme.text }} {% endif %}'>
 			Welcome </a><br><br><br>
-		<a id='meta' href="#" class='{% if author or date or device or size %} highlight-link {% else %} resting-link dark-text {% endif %}'> Metadata </a><hr><br>
-			<a id='meta-author' href="#" class='{% if author %} highlight-link {% else %} resting-link dark-text {% endif %}'> Delete or modify Author </a><br>
-			<a id='meta-date' href="#" class='{% if date %} highlight-link {% else %} resting-link dark-text {% endif %}'> Delete or modify Date created </a><br>
-			<a id='meta-device' href="#" class='{% if device %} highlight-link {% else %} resting-link dark-text {% endif %}'> Device type of creation </a><br>
-			<a id='meta-size' href="#" class='{% if size %} highlight-link {% else %} resting-link dark-text {% endif %}'> Extract Size (KB) </a><br><br><br>
-		<a id='content' href="#" class='resting-link dark-text'> Content </a><hr><br>
-			<a id='content-text' href="#" class='resting-link dark-text'> Fetch text </a><br>
-			<a id='content-images' href="#" class='resting-link dark-text'> Retrieve images </a><br>
-			<a id='content-attachments' href="#" class='resting-link dark-text'> Discover attachments </a><br><br><br>
-		<a id='transformation' href="#" class='resting-link dark-text'> Transformation </a><hr><br>
-			<a id='transformation-merge' href="#" class='resting-link dark-text'> Merge multiple files </a><br>
-			<a id='transformation-rotate' href="#" class='resting-link dark-text'> Rotate files </a><br><br><br>
-		<a id='security' href="#" class='resting-link dark-text'> Security </a><hr><br>
-			<a id='security-encryption' href="#" class='resting-link dark-text'> Encryption (AES) </a><br>
-			<a id='security-decryption' href="#" class='resting-link dark-text'> Decryption (AES) </a><br>
-<!-- 		<div id='marquee-div' class='wrapper'>
-			<div class='marquee'>
-				<p> Designed by Nicolas Robinson Email: nicolas.alexander.robinson@gmail.com </p>
-				<p> Designed by Nicolas Robinson Email: nicolas.alexander.robinson@gmail.com </p>
+		<a id='meta' href="#" class='{% if author or date or device %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Metadata </a><hr><br>
+			<a id='meta-author' href="#" class='{% if author %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Delete or modify Author </a><br>
+			<a id='meta-date' href="#" class='{% if date %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Delete or modify Date created </a><br>
+			<a id='meta-device' href="#" class='{% if device %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Device type of creation </a><br><br><br>
+		<a id='content' href="#" class='{% if text or images or attachments %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Content </a><hr><br>
+			<a id='content-text' href="#" class='{% if text %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Fetch text </a><br>
+			<a id='content-images' href="#" class='{% if images %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Retrieve images </a><br>
+			<a id='content-attachments' href="#" class='{% if attachments %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Discover attachments </a><br><br><br>
+		<a id='transformation' href="#" class='{% if merge or rotate %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Transformation </a><hr><br>
+			<a id='transformation-merge' href="#" class='{% if merge %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Merge multiple files </a><br>
+			<a id='transformation-rotate' href="#" class='{% if rotate %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Rotate files </a><br><br><br>
+		<a id='security' href="#" class='resting-link {{ theme.text }}'> Security </a><hr><br>
+			<a id='security-encryption' href="#" class='{% if encryption %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Encryption (AES) </a><br>
+			<a id='security-decryption' href="#" class='{% if decryption %} highlight-link {{ theme.text }} {% else %} resting-link {{ theme.text }} {% endif %}'> Decryption (AES) </a><br>
+		<!-- <div id='marquee-div' class='wrapper'>
+			<div class='marquee dark-text'>
+				<p> Designed and implemented by Nicolas Robinson Email: nicolas.alexander.robinson@gmail.com </p>
+				<p> Designed and implemented by Nicolas Robinson Email: nicolas.alexander.robinson@gmail.com </p>
 			</div>
 		</div> -->
+		<div id='pypdf-credits'>
+			{% load static %}
+			<p class='{{ theme.text }}'> Powered by </p>
+			<div id='pypdf-logo-div' class='{{ theme.component }}'>
+				<a href='https://pypdf2.readthedocs.io/en/3.0.0/' target='_blank' rel="noopener noreferrer">
+					<img id='pypdf-logo' src="{% static 'utils/pypdf-logo.png' %}" height='30px' width='80px'>
+				</a>
+			</div>
+		</div>
 	</div>
 
 
-	<div id='pdf-section' class='dark-upload-section expand'>
-		<div id='dropzone-section' ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" class='dark-dropzone-section'>
-			<p id='dropzone-text' class='dark-dropzone-text'> File dropping and global file upload in development 🚧</p>
+	<div id='pdf-section' class='{{ theme.upload_section }} expand'>
+		<div id='dropzone-section' ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" class='{{ theme.dropzone_section }}'>
+			<p id='dropzone-text' class='{{ theme.dropzone_text }}'> File dropping and global file upload in development 🚧</p>
 		</div>
 		<div id='placeholder'></div>
 	</div>
 
 	<div id='pdf-section-controller'>
-		<button id='expand-btn' class='dark-component expand'> Expand </button>
+		<button id='expand-btn' class='{{ theme.component }} expand'>
+			<div id='expand-icon'></div>
+		</button>
 	</div>
 
 
 
-	<div id='content-section' class='dark-main-section resting-text stop-scrolling'>
+	<div id='content-section' class='{{ theme.main_section }} resting-text stop-scrolling'>
 		<div id='body-section-welcome' class='{% if welcome %} {% else %} body-hidden {% endif %}'>
 			<div id='body-welcome' class='body-element'>
 				<div id='body-welcome-diagram'>
 					
 				</div>
-				<p id='body-heading-1'> Welcome </p>
-				<p id='body-content-1'>
-					{% load static %}
-					<img src="{% static 'utils/front-page-pdf.png' %}" alt='PDF image' height='240'/>
-					Welcome text 
+				<p id='body-heading-1' class='{{ theme.text }}'> Welcome </p>
+				<p id='body-content-1' class='{{ theme.text }}'>
+					Hello and welcome to this pdf service! <br><br> Please use the side-bar to browse the available functionalities!
 				</p>
 			</div>
 		</div>
@@ -803,7 +846,7 @@
 
 
 
-		<div id='body-section-metadata' class='{% if author or date or device or size %} {% else %} body-hidden {% endif %}'>
+		<div id='body-section-metadata' class='{% if author or date or device %} {% else %} body-hidden {% endif %}'>
 <!-- 			{% if author %}
 			<script> 
 				var meta_author = document.getElementById('meta-author');
@@ -811,18 +854,19 @@
 			</script>
 			{% endif %} -->
 			<div id='body-author' class='body-element'>
-				<p id='body-heading-1' class='dark-text'> Author </p>
-				<p id='body-content-1' class='dark-text'> This section provides access to the Author of the uploaded PDF file. </p>
+				<p id='body-heading-1' class='{{ theme.text }}'> Author </p>
+				<p id='body-content-1' class='{{ theme.text }}'> This section provides access to the Author of the uploaded PDF file. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnMetadata' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
+					<input id='theme-input-author' type='text' name='theme-input' hidden />
 						<div class='file-selector-div'>
-							<input type='file' name='author' accept='.pdf' class='dark-component file-selector' required />
-							<input type='submit' value='Fetch name' id='text-btn-1' class='btn-idle dark-component' />
+							<input type='file' name='author' accept='.pdf' class='{{ theme.component }} file-selector' required />
+							<input type='submit' value='Fetch name' id='text-btn-1' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-author').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 						</div>
 					</form>
 				</div>
-				<div id='body-resultbox-1' class='{% if author %} body-resultbox-active {% else %} dark-component body-resultbox {% endif %}'> {% if author %} <p> {{ author }} </p> {% else %} <p> Results will appear here... </p> {% endif %} </div>
+				<div id='body-resultbox-1' class='{% if author %} body-resultbox-active {{ theme.component }} {% else %} {{ theme.component }} body-resultbox {% endif %}'> {% if author %} <p> {{ author }} </p> {% else %} <p> Results will appear here... </p> {% endif %} </div>
 			</div>
 			{% if date %}
 			<script> 
@@ -834,16 +878,17 @@
 			</script>
 			{% endif %}
 			<div id='body-date' class='body-element'>
-				<p id='body-heading-2' class='dark-text'> Date </p>
-				<p id='body-content-2' class='dark-text'> This section provides access to the Date of creation of the uploaded PDF file. </p>
+				<p id='body-heading-2' class='{{ theme.text }}'> Date </p>
+				<p id='body-content-2' class='{{ theme.text }}'> This section provides access to the Date of creation of the uploaded PDF file. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnMetadata' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
-						<input type='file' id='author-pdf-box' name='date' accept='.pdf' class='dark-component' required />
-						<input type='submit' value='Fetch date' id='text-btn-2' class='btn-idle dark-component' />
+					<input id='theme-input-date' type='text' name='theme-input' hidden />
+						<input type='file' id='author-pdf-box' name='date' accept='.pdf' class='{{ theme.component }} file-selector' required />
+						<input type='submit' value='Fetch date' id='text-btn-2' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-date').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 					</form>
 				</div>
-				<div id='body-resultbox-2' class='{% if date %} body-resultbox-active {% else %} dark-component body-resultbox {% endif %}'> {% if date %} <p> {{ date }} </p> {% else %} <p> Results will appear here... </p> {% endif %} </div>
+				<div id='body-resultbox-2' class='{% if date %} body-resultbox-active {{ theme.component }} {% else %} {{ theme.component }} body-resultbox {% endif %}'> {% if date %} <p> {{ date }} </p> {% else %} <p> Results will appear here... </p> {% endif %} </div>
 			</div>
 			{% if device %}
 			<script> 
@@ -855,33 +900,17 @@
 			</script>
 			{% endif %}
 			<div id='body-device' class='body-element'>
-				<p id='body-heading-3' class='dark-text'> Device </p>
-				<p id='body-content-3' class='dark-text'> This section provides access to the device on which the uploaded PDF was created on. <br><br> For example, if the PDF was initially generated on a MacOS, the result will most likely be in the form of MacOS, with the operating system version (e.g. Catalina, Mojave). </p>
+				<p id='body-heading-3' class='{{ theme.text }}'> Device </p>
+				<p id='body-content-3' class='{{ theme.text }}'> This section provides access to the device on which the uploaded PDF was created on. <br><br> For example, if the PDF was initially generated on a MacOS, the result will most likely be in the form of MacOS, with the operating system version (e.g. Catalina, Mojave). </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnMetadata' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
-						<input type='file' id='author-pdf-box' name='device' accept='.pdf' class='dark-component' required />
-						<input type='submit' value='Fetch device' id='text-btn-3' class='btn-idle dark-component' />
+					<input id='theme-input-device' type='text' name='theme-input' hidden />
+						<input type='file' id='author-pdf-box' name='device' accept='.pdf' class='{{ theme.component }} file-selector' required />
+						<input type='submit' value='Fetch device' id='text-btn-3' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-device').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 					</form>
 				</div>
-				<div id='body-resultbox-3' class='{% if device %} body-resultbox-active {% else %} dark-component body-resultbox {% endif %}'> {% if device %} <p> {{ device }} </p> {% else %} <p> Results will appear here... </p> {% endif %} </div>
-			</div>
-			{% if size %}
-			<script> 
-				setTimeout(() => {
-					var contentSection = document.getElementById('content-section');
-					var meta_size = document.getElementById('meta-size');
-					meta_size.click()
-				}, 0)
-			</script>
-			{% endif %}
-			<div id='body-size' class='body-element'>
-				<p id='body-heading-4'> Size </p>
-				<div id='body-resultbox-4' class='body-resultbox'> <p> Results will appear here... </p> </div>
-				<p id='body-content-4'> This section returns the size of the file in KB. </p>
-				<div id='body-btn-4'>
-					<button id='text-btn-4' class='btn-idle'> Fetch size </button>
-				</div>
+				<div id='body-resultbox-3' class='{% if device %} body-resultbox-active {{ theme.component }} {% else %} {{ theme.component }} body-resultbox {% endif %}'> {% if device %} <p> {{ device }} </p> {% else %} <p> Results will appear here... </p> {% endif %} </div>
 			</div>
 		</div>
 		<div id='body-section-content' class='body-hidden'>
@@ -895,16 +924,17 @@
 			</script>
 			{% endif %}
 			<div id='body-text' class='body-element'>
-				<p id='body-heading-1' class='dark-text'> Text </p>
-				<p id='body-content-1' class='dark-text'> This section uses PyPDF to parse the PDF file for its contents. The text in the PDF is extracted and printed out to the box above. </p>
+				<p id='body-heading-1' class='{{ theme.text }}'> Text </p>
+				<p id='body-content-1' class='{{ theme.text }}'> This section uses PyPDF to parse the PDF file for its contents. The text in the PDF is extracted and printed out to the box above. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnContent' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
-						<input type='file' id='author-pdf-box' name='text' accept='.pdf' class='dark-component' required />
-						<input type='submit' value='Fetch text' id='text-btn-1' class='btn-idle dark-component' />
+					<input id='theme-input-text' type='text' name='theme-input' hidden />
+						<input type='file' id='author-pdf-box' name='text' accept='.pdf' class='{{ theme.component }} file-selector' required />
+						<input type='submit' value='Fetch text' id='text-btn-1' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-text').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 					</form>
 				</div>
-				<div id='body-resultbox-1' class='{% if text %} body-resultbox-active {% else %} dark-component body-resultbox {% endif %}'> <p> {% if text %} {{ text }} {% else %} Results will appear here... {% endif %} </p> </div>
+				<div id='body-resultbox-1' class='{% if text %} body-resultbox-active {{ theme.component }} {% else %} {{ theme.component }} body-resultbox {% endif %}'> <p> {% if text %} {{ text }} {% else %} Results will appear here... {% endif %} </p> </div>
 			</div>
 			{% if images %}
 			<script> 
@@ -916,16 +946,17 @@
 			</script>
 			{% endif %}
 			<div id='body-images' class='body-element'>
-				<p id='body-heading-2' class='dark-text'> Images </p>
-				<p id='body-content-2' class='dark-text'> This section provides the functionality to extract images and return the number of images in the PDF. </p>
+				<p id='body-heading-2' class='{{ theme.text }}'> Images </p>
+				<p id='body-content-2' class='{{ theme.text }}'> This section provides the functionality to extract images and return the number of images in the PDF. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnContent' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
-						<input type='file' id='author-pdf-box' name='images' accept='.pdf' class='dark-component' required />
-						<input type='submit' value='Fetch images' id='text-btn-2' class='btn-idle dark-component' />
+					<input id='theme-input-images' type='text' name='theme-input' hidden />
+						<input type='file' id='author-pdf-box' name='images' accept='.pdf' class='{{ theme.component }} file-selector' required />
+						<input type='submit' value='Fetch images' id='text-btn-2' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-images').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 					</form>
 				</div>
-				<div id='body-resultbox-2' class='{% if images %} body-resultbox-active {% else %} dark-component body-resultbox {% endif %}'> <p> {% if images %} {{ images }} {% else %} Results will appear here... {% endif %} </p> </div>
+				<div id='body-resultbox-2' class='{% if images %} body-resultbox-active {{ theme.component }} {% else %} {{ theme.component }} body-resultbox {% endif %}'> <p> {% if images %} {{ images }} {% else %} Results will appear here... {% endif %} </p> </div>
 			</div>
 			{% if attachments %}
 			<script> 
@@ -937,101 +968,98 @@
 			</script>
 			{% endif %}
 			<div id='body-attachments' class='body-element'>
-				<p id='body-heading-3' class='dark-text'> Attachments </p>
-				<p id='body-content-3' class='dark-text'> This section extracts any attachments associated with the PDF. </p>
+				<p id='body-heading-3' class='{{ theme.text }}'> Attachments </p>
+				<p id='body-content-3' class='{{ theme.text }}'> This section extracts any attachments associated with the PDF. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnContent' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
-						<input type='file' id='author-pdf-box' name='attachments' accept='.pdf' class='dark-component' required />
-						<input type='submit' value='Fetch attachments' id='text-btn-3' class='btn-idle dark-component' />
+					<input id='theme-input-attachments' type='text' name='theme-input' hidden />
+						<input type='file' id='author-pdf-box' name='attachments' accept='.pdf' class='{{ theme.component }} file-selector' required />
+						<input type='submit' value='Fetch attachments' id='text-btn-3' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-attachments').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 					</form>
 				</div>
-				<div id='body-resultbox-3' class='{% if attachments %} body-resultbox-active {% else %} dark-component body-resultbox {% endif %}'> <p> {% if attachments %} {{ attachments }} {% else %} Results will appear here... {% endif %} </p> </div>
+				<div id='body-resultbox-3' class='{% if attachments %} body-resultbox-active {{ theme.component }} {% else %} {{ theme.component }} body-resultbox {% endif %}'> <p> {% if attachments %} {{ attachments }} {% else %} Results will appear here... {% endif %} </p> </div>
 			</div>
 		</div>
 		<div id='body-section-transformation' class='body-hidden'>
 			<div id='body-merge' class='body-element'>
-				<p id='body-heading-1' class='dark-text'> Merge </p>
-				<div id='body-resultbox-1' class='dark-component body-downloadbox'> <p> Download will commence automatically </p> </div>
-				<p id='body-content-1' class='dark-text'> This section merges multiple uploaded PDFs. </p>
+				<p id='body-heading-1' class='{{ theme.text }}'> Merge </p>
+				<div id='body-resultbox-1' class='{{ theme.component }} body-downloadbox'> <p> Download will commence automatically </p> </div>
+				<p id='body-content-1' class='{{ theme.text }}'> This section merges multiple uploaded PDFs. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnTransformation' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
-						<input type='file' id='author-pdf-box' name='merged' accept='.pdf' class='dark-component' multiple required />
-						<input type='submit' value='Merge' id='text-btn-2' class='btn-idle dark-component' />
+					<input id='theme-input-merge' type='text' name='theme-input' hidden />
+						<input type='file' id='author-pdf-box' name='merged' accept='.pdf' class='{{ theme.component }} file-selector' multiple required />
+						<input type='submit' value='Merge' id='text-btn-2' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-merge').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 					</form>
 				</div>
 			</div>
 			<div id='body-rotate' class='body-element'>
-				<p id='body-heading-2' class='dark-text'> Rotate </p>
-				<div id='body-resultbox-2' class='dark-component body-downloadbox'> <p> Download will commence automatically </p> </div>
-				<p id='body-content-2' class='dark-text'> This section rotates an uploaded PDF by the specified angle. </p>
+				<p id='body-heading-2' class='{{ theme.text }}'> Rotate </p>
+				<div id='body-resultbox-2' class='{{ theme.component }} body-downloadbox'> <p> Download will commence automatically </p> </div>
+				<p id='body-content-2' class='{{ theme.text }}'> This section rotates an uploaded PDF by the specified angle. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnTransformation' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
-						<input type='file' id='author-pdf-box' name='rotated' accept='.pdf' class='dark-component' multiple required />
-						<label for='degree-input' class='dark-text'>Angle</label><input id='degree-input' name='rotation_degree' type='number' min='0' max='360' default='90' class='dark-component' required ><br>
-						<input type='submit' value='Rotate' id='text-btn-2' class='btn-idle dark-component' />
+					<input id='theme-input-rotate' type='text' name='theme-input' hidden />
+						<label for='degree-input' class='{{ theme.text }}'>Angle</label><input id='degree-input' name='rotation_degree' type='number' min='0' max='360' default='90' class='{{ theme.component }}' required ><br>
+						<input type='file' id='author-pdf-box' name='rotated' accept='.pdf' class='{{ theme.component }} file-selector' multiple required />
+						<input type='submit' value='Rotate' id='text-btn-2' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-rotate').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 					</form>
 				</div>
 			</div>
 		</div>
 		<div id='body-section-security' class='body-hidden'>
 			<div id='body-encryption' class='body-element'>
-				<p id='body-heading-1' class='dark-text'> Encryption </p>
-				<div id='body-resultbox-1' class='dark-component body-downloadbox'> <p> Download will commence automatically </p> </div>
-				<p id='body-content-1' class='dark-text'> This section encrypts the uploaded PDF using a choice of AES algorithms. </p>
+				<p id='body-heading-1' class='{{ theme.text }}'> Encryption </p>
+				<div id='body-resultbox-1' class='{{ theme.component }} body-downloadbox'> <p> Download will commence automatically </p> </div>
+				<p id='body-content-1' class='{{ theme.text }}'> This section encrypts the uploaded PDF using a choice of AES algorithms. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnSecurity' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
-						<input type='file' id='author-pdf-box' name='AES-encrypt' accept='.pdf' class='dark-component' multiple required />
-						<br><br><br>
-						<label id='algorithm-type-div-label' for='algorithm-type-div' class='dark-text'>
+					<input id='theme-input-encryption' type='text' name='theme-input' hidden />
+						<label id='algorithm-type-div-label' for='algorithm-type-div' class='{{ theme.text }}'>
 							Algorithms
 						</label>
-						<div id='algorithm-type-div' class='dark-component'>
-							<label id='label-AES-1' for='AES-test-1' class='dark-text'>AES-128</label>
-							<input id='AES-test-1' name='AES-algorithm' type='radio' value='AES-128' class='dark-component' required >
-							<br><br>
-							<label id='label-AES-2' for='AES-test-2' class='dark-text'>AES-256</label>
-							<input id='AES-test-2' name='AES-algorithm' type='radio' value='AES-256' class='dark-component' required >
-							<br><br>
-							<label id='label-AES-3' for='AES-test-3' class='dark-text'>AES-256-R5</label>
-							<input id='AES-test-3' name='AES-algorithm' type='radio' value='AES-256-R5' class='dark-component' required >
+						<div id='algorithm-type-div' class='{{ theme.component }}'>
+							<label id='label-AES-1-enc' for='AES-test-1' class='{{ theme.text }}'>AES-128</label>
+							<input id='AES-test-1-enc' name='AES-algorithm' type='radio' value='AES-128' class='{{ theme.component }}' required >
+							<label id='label-AES-2-enc' for='AES-test-2' class='{{ theme.text }}'>AES-256</label>
+							<input id='AES-test-2-enc' name='AES-algorithm' type='radio' value='AES-256' class='{{ theme.component }}' required >
+							<label id='label-AES-3-enc' for='AES-test-3' class='{{ theme.text }}'>AES-256-R5</label>
+							<input id='AES-test-3-enc' name='AES-algorithm' type='radio' value='AES-256-R5' class='{{ theme.component }}' required >
 						</div>
-						<br><br>
-						<label for='password-input' class='dark-text'>Password</label>
-						<input id='password-input' name='password-input' type='text' class='dark-component' required ><br><br><br><br><br><br><br>
-						<input type='submit' value='Encrypt' id='text-btn-2' class='btn-idle dark-component' />
+						<label for='password-input' class='{{ theme.text }}'>Password</label>
+						<input id='password-input' name='password-input' type='text' class='{{ theme.component }}' required >
+						<input type='file' id='author-pdf-box' name='AES-encrypt' accept='.pdf' class='{{ theme.component }} file-selector' multiple required />
+						<input type='submit' value='Encrypt' id='text-btn-2' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-encryption').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 					</form>
 				</div>
 			</div>
 			<div id='body-decryption' class='body-element'>
-				<p id='body-heading-1' class='dark-text'> Decryption </p>
-				<div id='body-resultbox-1' class='dark-component body-downloadbox'> <p> Download will commence automatically </p> </div>
-				<p id='body-content-1' class='dark-text'> This section decrypts the uploaded PDF using a choice of AES algorithms. </p>
+				<p id='body-heading-1' class='{{ theme.text }}'> Decryption </p>
+				<div id='body-resultbox-1' class='{{ theme.component }} body-downloadbox'> <p> Download will commence automatically </p> </div>
+				<p id='body-content-1' class='{{ theme.text }}'> This section decrypts the uploaded PDF using a choice of AES algorithms. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnSecurity' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
-						<input type='file' id='author-pdf-box' name='AES-decrypt' accept='.pdf' class='dark-component' multiple required />
-						<br><br><br>
-						<label id='algorithm-type-div-label' for='algorithm-type-div' class='dark-text'>
+					<input id='theme-input-decryption' type='text' name='theme-input' hidden />
+						<label id='algorithm-type-div-label' for='algorithm-type-div' class='{{ theme.text }}'>
 							Algorithms
 						</label>
-						<div id='algorithm-type-div' class='dark-component'>
-							<label id='label-AES-1' for='AES-test-1' class='dark-text'>AES-128</label>
-							<input id='AES-test-1' name='AES-algorithm' type='radio' value='AES-128' class='dark-text' required >
-							<br><br>
-							<label id='label-AES-2' for='AES-test-2' class='dark-text'>AES-256</label>
-							<input id='AES-test-2' name='AES-algorithm' type='radio' value='AES-256' class='dark-text' required >
-							<br><br>
-							<label id='label-AES-3' for='AES-test-3' class='dark-text'>AES-256-R5</label>
-							<input id='AES-test-3' name='AES-algorithm' type='radio' value='AES-256-R5' class='dark-text' required >
+						<div id='algorithm-type-div' class='{{ theme.component }}'>
+							<label id='label-AES-1-dec' for='AES-test-1' class='{{ theme.text }}'>AES-128</label>
+							<input id='AES-test-1-dec' name='AES-algorithm' type='radio' value='AES-128' class='{{ theme.text }}' required >
+							<label id='label-AES-2-dec' for='AES-test-2' class='{{ theme.text }}'>AES-256</label>
+							<input id='AES-test-2-dec' name='AES-algorithm' type='radio' value='AES-256' class='{{ theme.text }}' required >
+							<label id='label-AES-3-dec' for='AES-test-3' class='{{ theme.text }}'>AES-256-R5</label>
+							<input id='AES-test-3-dec' name='AES-algorithm' type='radio' value='AES-256-R5' class='{{ theme.text }}' required >
 						</div>
-						<br><br>
-						<label for='password-input' class='dark-text'>Password</label>
-						<input id='password-input' name='password-input' type='text' class='dark-component' required ><br><br><br><br><br><br><br>
-						<input type='submit' value='Decrypt' id='text-btn-2' class='btn-idle dark-component' />
+						<label for='password-input' class='{{ theme.text }}'>Password</label>
+						<input id='password-input' name='password-input' type='text' class='{{ theme.component }}' required >
+						<input type='file' id='author-pdf-box' name='AES-decrypt' accept='.pdf' class='{{ theme.component }} file-selector' multiple required />
+						<input type='submit' value='Decrypt' id='text-btn-2' class='btn-idle {{ theme.component }}' onclick="document.getElementById('theme-input-decryption').setAttribute('value', document.getElementById('theme-toggle-checkbox').checked)"/>
 					</form>
 				</div>
 			</div>
@@ -1041,7 +1069,7 @@
 			<div id='theme-toggle'>
 				<div id='theme-toggle-btn'>
 					<label class='switch'>
-						<input id='theme-toggle-checkbox' type='checkbox' class='dark-component' checked />
+						<input id='theme-toggle-checkbox' type='checkbox' class='{{ theme.component }}' {{ theme.checked }} />
 						<span class='slider round'></span>
 					</label>
 				</div>
@@ -1050,27 +1078,22 @@
 				</div>
 			</div>
 			<div id='headers-section'>
-				<p> Headings </p>
-				<div id='header-1-div' class='resting-header'>
-					<a href='#' id='header-1' class='dark-text resting-sub-header'> Author </a>
+				<p class='{{ theme.text }}'> Headings </p>
+				<div id='header-1-div' class='highlight-header {{ theme.header }}'>
+					<a href='#' id='header-1' class='{{ theme.text }} highlight-sub-header'> Welcome </a>
 				</div>
-				<div id='header-2-toggle'>
-					<div id='header-2-div' class='resting-header'>
-					<a href='#' id='header-2' class='dark-text resting-sub-header'> Date </a>
+				<div id='header-2-toggle' class='header-hidden'>
+					<div id='header-2-div' class='resting-header {{ theme.header }}'>
+					<a href='#' id='header-2' class='{{ theme.text }} resting-sub-header'> Date </a>
 				</div>
 				</div>
-				<div id='header-3-toggle'>
-					<div id='header-3-div' class='resting-header'>
-						<a href='#' id='header-3' class='dark-text resting-sub-header'> Device </a>
-					</div>
-				</div>
-				<div id='header-4-toggle'>
-					<div id='header-4-div' class='resting-header'>
-						<a href='#' id='header-4' class='dark-text resting-sub-header'> Size </a>
+				<div id='header-3-toggle' class='header-hidden'>
+					<div id='header-3-div' class='resting-header {{ theme.header }}'>
+						<a href='#' id='header-3' class='{{ theme.text }} resting-sub-header'> Device </a>
 					</div>
 				</div>
 			</div>
-			<div id='ads-section' class='dark-component'></div>
+			<div id='ads-section' class='{{ theme.component }}'></div>
 		</div>
 	</div>
 </body>
