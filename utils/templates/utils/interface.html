@@ -170,7 +170,6 @@
 				// 		});
 				// 	document.getElementById('header3').classList.replace("resting-sub-header", "highlight-sub-header");
 				// }
-				adsSection.innerHTML = "<span>" + Math.round(pos) + "%<span>"
 			});
 
 			var header1 = document.getElementById('header-1');
@@ -903,7 +902,7 @@
 			{% endif %}
 			<div id='body-device' class='body-element'>
 				<p id='body-heading-3' class='{{ theme.text }}'> Device </p>
-				<p id='body-content-3' class='{{ theme.text }}'> This section provides access to the device on which the uploaded PDF was created on. <br><br> For example, if the PDF was initially generated on a MacOS, the result will most likely be in the form of MacOS, with the operating system version (e.g. Catalina, Mojave). </p>
+				<p id='body-content-3' class='{{ theme.text }}'> This section provides access to the device on which the uploaded PDF was created on. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnMetadata' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
@@ -927,7 +926,7 @@
 			{% endif %}
 			<div id='body-text' class='body-element'>
 				<p id='body-heading-1' class='{{ theme.text }}'> Text </p>
-				<p id='body-content-1' class='{{ theme.text }}'> This section uses PyPDF to parse the PDF file for its contents. The text in the PDF is extracted and printed out to the box above. </p>
+				<p id='body-content-1' class='{{ theme.text }}'> This section uses PyPDF to parse the PDF file for its contents. The text in the PDF is extracted and printed out to the box below. </p>
 				<div class='body-form'>
 					<form action="{% url 'utils:returnContent' %}" method='post' enctype='multipart/form-data'>
 					{% csrf_token %}
@@ -1095,7 +1094,17 @@
 					</div>
 				</div>
 			</div>
-			<div id='ads-section' class='{{ theme.component }}'></div>
+			<div id='ads-section' class='{{ theme.component }}'>
+				{% load static %}
+				<p class='social-icon-text'> LinkedIn </p> 
+				<a href='https://www.linkedin.com/in/nicolas-robinson-qmul/' target='_blank' rel="noopener noreferrer">
+					<img src='{% static "utils/linkedin-logo.png" %}' height='20px' width='20px' class='social-icon'>
+				</a>
+				<p class='social-icon-text'> GitHub </p> 
+				<a href='https://github.com/narobinson1' target='_blank' rel="noopener noreferrer">
+					<img src='{% static "utils/github-logo.png" %}' height='20px' width='20px' style='border: 2px solid #727574' class='social-icon'>
+				</a>
+			</div>
 		</div>
 	</div>
 </body>

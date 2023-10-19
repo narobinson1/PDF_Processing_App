@@ -313,15 +313,19 @@ body {
 
 #ads-section {
 	position: absolute;
-	top: 400px;
-	right: 40px;
+	top: 360px;
+	right: 100px;
 
-	height: 340px;
-	width: 260px;
+	height: 240px;
+	width: 160px;
 
 	border-radius: 20px;
 }
-
+.social-icon, .social-icon-text {
+	position: relative;
+	left: 30px;
+	top: 30px;
+}
 #header-1-div, #header-2-div, #header-3-div {
 	position: absolute;
 	padding-top: 10px;
